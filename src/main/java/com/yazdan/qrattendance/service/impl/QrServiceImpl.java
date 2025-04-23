@@ -49,6 +49,7 @@ public class QrServiceImpl implements QrService {
             classroom.setQrCodeData(base64);
             classroom.setLocationLat(request.getLocationLat());
             classroom.setLocationLng(request.getLocationLng());
+            classroom.setQrExpiresAt(expiresAt);
             classroomRepository.save(classroom);
             GenerateQrResponse resp = new GenerateQrResponse();
             resp.setQrCodeBase64(base64);

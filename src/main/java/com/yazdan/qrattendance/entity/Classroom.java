@@ -25,6 +25,9 @@ public class Classroom {
     @Column(name = "qr_code_data")
     private String qrCodeData; // base64 PNG
 
+    @Column(name = "qr_expires_at")
+    private LocalDateTime qrExpiresAt;
+
     private Double locationLat;
     private Double locationLng;
 

@@ -40,7 +40,7 @@ public class ScanServiceImpl implements ScanService {
                 .orElseThrow(() -> new IllegalArgumentException("Classroom not found"));
         // QR expiry validation
         LocalDateTime now = LocalDateTime.now();
-        if (classroom.getCreatedAt().plusMinutes(qrExpiryMinutes).isBefore(now)) {
+        if (classroom.getQrExpiresAt() == null || classroom.getQrExpiresAt().isBefore(now)) {
             throw new IllegalArgumentException("QR code expired");
         }
         // Distance validation
